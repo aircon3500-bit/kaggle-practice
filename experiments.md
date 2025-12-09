@@ -8,8 +8,8 @@
 | Disaster Tweets | 0.84063 | 🔄進行中（目標0.85） |
 | Movie Reviews | 0.68771 | 🔄進行中（目標0.72） |
 | Toxic Comment | 0.98565 | 🔄進行中（目標0.9886） |
-| Quora Question Pairs | - | 🔄進行中（ベースライン実行中） |
-| Google QUEST Q&A | - | ⏳未着手 |
+| Quora Question Pairs | - | ⏸️スキップ |
+| Google QUEST Q&A | - | 🔄進行中（分析完了） |
 | TensorFlow QA | - | ⏳未着手 |
 | NBME Patient Notes | - | ⏳未着手 |
 

@@ -9,7 +9,7 @@
 | Movie Reviews | 0.68771 | 🔄進行中（目標0.72） |
 | Toxic Comment | 0.98565 | 🔄進行中（目標0.9886） |
 | Quora Question Pairs | - | ⏸️スキップ |
-| Google QUEST Q&A | - | 🔄進行中（分析完了） |
+| Google QUEST Q&A | 0.357 (CV) | 🔄進行中（後処理で改善予定） |
 | TensorFlow QA | - | ⏳未着手 |
 | NBME Patient Notes | - | ⏳未着手 |
 

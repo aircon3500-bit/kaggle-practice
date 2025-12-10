@@ -10,7 +10,7 @@
 | Toxic Comment | 0.98565 | 🔄進行中（目標0.9886） |
 | Quora Question Pairs | - | ⏸️スキップ |
 | Google QUEST Q&A | 0.357 (CV) | 🔄進行中（後処理で改善予定） |
-| TensorFlow QA | - | ⏳未着手 |
+| TensorFlow QA | 0.5578 (dev F1) | ✅1周目完了 |
 | NBME Patient Notes | - | ⏳未着手 |
 
 ---
@@ -26,7 +26,9 @@
 | Multi-Sample Dropout | Disaster Tweets | 複数Dropout平均で安定 |
 | Label Smoothing | Disaster Tweets | 過信防止 |
 | 埋め込み層凍結 | Disaster Tweets | 初期学習の安定化 |
-
+| Extractive QA (スパン抽出) | TensorFlow QA | 文書から回答位置を予測 |
+| スライディングウィンドウ | TensorFlow QA | 長文書をBERT 512制限に対応 |
+| No Answer閾値最適化 | TensorFlow QA | CLS score vs span score |
 ---
 
 ## Disaster Tweets
@@ -66,3 +68,24 @@
 1. Movie Reviews: DeBERTa-large 5-Fold再実行 → 0.72超え狙い
 2. Disaster Tweets: 0.85達成のための追加改善
 3. Toxic Comment: 次のコンペへ
+
+---
+
+## TensorFlow QA
+
+### ベスト: 0.5578 (dev F1)
+
+| 実験 | モデル | 設定 | スコア | メモ |
+|------|--------|------|--------|------|
+| baseline | BERT-large-WWM-SQuAD2 | 推論のみ, 閾値最適化 | 0.5578 | 1周目完了 |
+
+### 学んだこと
+- Extractive QA = 文書内の回答位置（start, end）を予測
+- No Answerが51% → 閾値最適化が重要
+- 長文書処理 → スライディングウィンドウ（平均70 features/example）
+- 上位解法: Hard Negative Sampling、WWMモデル、アンサンブル
+
+### 上位解法の知見
+- 1位: Hard Negative Sampling + 閾値手動調整で0.66→0.71
+- 2位: Empty比率調整 + シンプル設計（単一モデル）
+- 共通: WWM、SQuAD事前学習、閾値最適化

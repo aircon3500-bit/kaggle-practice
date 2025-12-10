@@ -28,3 +28,26 @@
 - [ ] ベースライン（DeBERTa-v3-base、後処理なし）
 - [ ] 後処理追加（ビニング）
 - [ ] 改善（WeightedLayerPooling、Multi-Sample Dropout）
+
+## Results
+
+| Version | CV Score | Model | Notes |
+|---------|----------|-------|-------|
+| v1 (Baseline) | 0.357 | DeBERTa-v3-base | 5-Fold, 後処理なし |
+
+## ベースライン設定
+
+| 項目 | 値 |
+|------|-----|
+| モデル | DeBERTa-v3-base |
+| max_len | 512 |
+| batch_size | 8 |
+| epochs | 5 |
+| n_folds | 5 |
+| lr | 2e-5 |
+
+## 次のステップ
+
+- [ ] 後処理（ビニング）追加 → +0.02〜0.04見込み
+- [ ] WeightedLayerPooling
+- [ ] Q/A分離モデル
